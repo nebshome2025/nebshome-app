@@ -2,50 +2,38 @@
 <html lang="ro">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Test Casa Ideală</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      font-size: 18px;
-      padding: 30px;
+      margin: 40px;
       background-color: #f9f9f9;
-      color: #333;
-      line-height: 1.6;
     }
-
     h1 {
-      font-size: 30px;
-      margin-bottom: 20px;
-      color: #222;
+      font-size: 28px;
+      color: #333;
     }
-
     label {
       font-weight: bold;
       display: block;
       margin-top: 20px;
-      margin-bottom: 10px;
-    }
-
-    input[type="radio"],
-    input[type="email"] {
-      margin-bottom: 10px;
       font-size: 18px;
     }
-
+    input[type="radio"], input[type="email"] {
+      margin: 8px 0;
+      font-size: 16px;
+    }
     button {
       margin-top: 20px;
       padding: 10px 20px;
-      font-size: 18px;
-      background-color: #0078D4;
+      background-color: #0078d7;
       color: white;
       border: none;
-      border-radius: 5px;
+      font-size: 16px;
       cursor: pointer;
     }
-
     button:hover {
-      background-color: #005A9E;
+      background-color: #005fa3;
     }
   </style>
 </head>
@@ -53,20 +41,20 @@
   <h1>Ce tip de casă ți se potrivește?</h1>
 
   <form>
-    <label>Cum preferi să-ți petreci timpul liber?</label>
-    <input type="radio" name="intrebare1" value="liniste"> În liniște, acasă<br>
-    <input type="radio" name="intrebare1" value="activ"> Activ, prin oraș sau natură<br>
+    <label>1. Cum preferi să-ți petreci timpul liber?</label>
+    <input type="radio" name="intrebarea1" value="liniste"> În liniște, acasă<br>
+    <input type="radio" name="intrebarea1" value="activ"> Activ, prin oraș sau natură<br>
 
-    <label>Care e stilul tău preferat?</label>
-    <input type="radio" name="intrebare2" value="modern"> Modern<br>
-    <input type="radio" name="intrebare2" value="rustic"> Natural, rustic<br>
+    <label>2. Care e stilul tău preferat?</label>
+    <input type="radio" name="intrebarea2" value="modern"> Modern<br>
+    <input type="radio" name="intrebarea2" value="natural"> Natural, rustic<br>
 
-    <label>Cât de multă lumină naturală îți place?</label>
-    <input type="radio" name="intrebare3" value="multa"> Multă lumină<br>
-    <input type="radio" name="intrebare3" value="putina"> Mai puțină, dar confort<br>
+    <label>3. Cât de multă lumină naturală îți place?</label>
+    <input type="radio" name="intrebarea3" value="multa"> Multă lumină<br>
+    <input type="radio" name="intrebarea3" value="putina"> Mai puțină, dar confort<br>
 
-    <label>Email (ca să-ți trimitem rezultatul):</label>
-    <input type="email" name="email"><br><br>
+    <label>4. Email (ca să-ți trimitem rezultatul):</label>
+    <input type="email" name="email"><br>
 
     <button type="submit">Trimite răspunsurile</button>
   </form>

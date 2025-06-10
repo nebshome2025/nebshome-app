@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Nebshome</title>
+</head>
+<body>
+    <h1>Testul Nebshome</h1>
+    <form id="nebshomeTest">
+        <p>1. Cum îți imaginezi locuința ideală?</p>
+        <label><input type="radio" name="q1" value="A"> În mijlocul naturii, cu grădină și aer curat</label><br>
+        <label><input type="radio" name="q1" value="B"> Cu camere delimitate clar și spații bine organizate</label><br>
+        <label><input type="radio" name="q1" value="C"> Modernă, într-un oraș activ</label><br>
+        <label><input type="radio" name="q1" value="D"> Mică, calmă, intimă</label><br><br>
+
+        <p>2. Ce activitate te relaxează cel mai mult?</p>
+        <label><input type="radio" name="q2" value="A"> Plimbări în pădure sau grădinărit</label><br>
+        <label><input type="radio" name="q2" value="B"> Gătitul în familie</label><br>
+        <label><input type="radio" name="q2" value="C"> Explorarea orașului sau a tehnologiei</label><br>
+        <label><input type="radio" name="q2" value="D"> Meditația sau lectura în liniște</label><br><br>
+
+        <p>3. Ce tip de vecini preferi?</p>
+        <label><input type="radio" name="q3" value="A"> Cât mai puțini, ideal liniște totală</label><br>
+        <label><input type="radio" name="q3" value="B"> Comunitate stabilă, familii</label><br>
+        <label><input type="radio" name="q3" value="C"> Prietenoși, activi, diverși</label><br>
+        <label><input type="radio" name="q3" value="D"> Nu contează, atâta timp cât am spațiul meu intim</label><br><br>
+
+        <p>4. Ce te definește cel mai bine?</p>
+        <label><input type="radio" name="q4" value="A"> Conectarea cu natura</label><br>
+        <label><input type="radio" name="q4" value="B"> Rutina și siguranța</label><br>
+        <label><input type="radio" name="q4" value="C"> Curiozitatea și ritmul rapid</label><br>
+        <label><input type="radio" name="q4" value="D"> Profunzimea și liniștea</label><br><br>
+
+        <p>5. Ce îți lipsește acum cel mai mult în locuința ta?</p>
+        <label><input type="radio" name="q5" value="A"> Natură și lumină naturală</label><br>
+        <label><input type="radio" name="q5" value="B"> Spațiu clar definit și organizat</label><br>
+        <label><input type="radio" name="q5" value="C"> Acces rapid la oraș și tehnologie</label><br>
+        <label><input type="radio" name="q5" value="D"> Liniște, izolare și confort emoțional</label><br><br>
+
+        <button type="submit">Vezi rezultatul</button>
+    </form>
+
+    <script>
+    document.getElementById("nebshomeTest").addEventListener("submit", function(event) {
+        event.preventDefault();
+        const answers = { A: 0, B: 0, C: 0, D: 0 };
+        for (let i = 1; i <= 5; i++) {
+            const choice = document.querySelector('input[name="q' + i + '"]:checked');
+            if (choice) {
+                answers[choice.value]++;
+            }
+        }
+        let maxKey = "A";
+        for (const key in answers) {
+            if (answers[key] > answers[maxKey]) {
+                maxKey = key;
+            }
+        }
+        let resultText = "";
+        switch (maxKey) {
+            case "A":
+                resultText = "Ești un Visător Natural – iubești natura, libertatea și un stil de viață autentic.";
+                break;
+            case "B":
+                resultText = "Ești un Familist Structurat – prețuiești stabilitatea, confortul și rutina bine organizată.";
+                break;
+            case "C":
+                resultText = "Ești un Explorator Urban – îți place dinamismul, tehnologia și conectarea urbană.";
+                break;
+            case "D":
+                resultText = "Ești un Minimalist Conștient – valorifici intimitatea, sensul profund și echilibrul emoțional.";
+                break;
+        }
+        alert("Rezultatul tău:\n\n" + resultText);
+    });
+    </script>
+</body>
+</html>

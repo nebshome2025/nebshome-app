@@ -1,71 +1,20 @@
-<!DOCTYPE html>
-<html lang="ro">
-<head>
-  <meta charset="UTF-8" />
-  <title>Test Nebshome – 10 Întrebări</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 20px; background: #f4f4f4; }
-    h1 { color: #2c3e50; }
-    .question { margin-bottom: 20px; padding: 15px; background: #fff; border-radius: 8px; }
-    .question p { margin-bottom: 8px; }
-    button { padding: 10px 20px; font-size: 16px; }
-  </style>
-</head>
 <body>
-  <h1>Testul Nebshome – Descoperă ce tip de locuință ți se potrivește</h1>
-  <form id="nebshomeTest">
-    <!-- Întrebările -->
-    <div class="question">
-      <p>1. Cum preferi să-ți petreci timpul liber?</p>
-      <label><input type="radio" name="q1" value="A" /> Acasă, în liniște</label><br />
-      <label><input type="radio" name="q1" value="B" /> În oraș, cu prietenii</label><br />
-      <label><input type="radio" name="q1" value="C" /> În natură sau activ</label>
+    <div class="container">
+        <h1>Nebshome - Află ce locuință ți se potrivește!</h1>
+        <div id="quiz-container">
+            <div id="question-area">
+                <p id="question-text"></p>
+                <div id="options-container" class="options-grid">
+                    </div>
+            </div>
+            <div id="navigation-buttons">
+                <button id="prev-button" class="btn" style="display:none;">Înapoi</button>
+                <button id="next-button" class="btn">Următorul</button>
+                <button id="submit-button" class="btn" style="display:none;">Vezi Rezultatul</button>
+            </div>
+        </div>
+        <p id="result-message" style="display:none;"></p>
     </div>
 
-    <div class="question">
-      <p>2. Ce stil de design interior preferi?</p>
-      <label><input type="radio" name="q2" value="A" /> Modern minimalist</label><br />
-      <label><input type="radio" name="q2" value="B" /> Rustic și natural</label><br />
-      <label><input type="radio" name="q2" value="C" /> Elegant și clasic</label>
-    </div>
-
-    <!-- Adaugă încă 8 întrebări exact în același format -->
-
-    <div class="question">
-      <p>10. Ce te face să te simți cu adevărat „acasă”?</p>
-      <label><input type="radio" name="q10" value="A" /> Liniștea și familiaritatea</label><br />
-      <label><input type="radio" name="q10" value="B" /> Flexibilitatea și libertatea</label><br />
-      <label><input type="radio" name="q10" value="C" /> Ordinea și funcționalitatea</label>
-    </div>
-
-    <button type="button" onclick="calculateScore()">Află profilul</button>
-  </form>
-
-  <script>
-    function calculateScore() {
-      const answers = document.forms["nebshomeTest"];
-      let scoreA = 0, scoreB = 0, scoreC = 0;
-
-      for (let i = 1; i <= 10; i++) {
-        const selected = answers["q" + i].value;
-        if (selected === "A") scoreA++;
-        else if (selected === "B") scoreB++;
-        else if (selected === "C") scoreC++;
-      }
-
-      let maxScore = Math.max(scoreA, scoreB, scoreC);
-      let profil = "";
-
-      if (maxScore === scoreA) {
-        profil = "Familist Structurat – prețuiești stabilitatea, rutina și confortul. Casa ideală are spații bine organizate și o atmosferă calmă.";
-      } else if (maxScore === scoreB) {
-        profil = "Explorator Urban – cauți energie, conexiuni sociale și stil modern. Îți place să fii aproape de dinamica orașului.";
-      } else {
-        profil = "Visător Natural – îți place armonia, natura și libertatea. Casa ta ideală este integrată cu elemente naturale și deschisă.";
-      }
-
-      alert("🔒 Plătește pentru a primi rezultatul complet.\n\n" + profil);
-    }
-  </script>
+    <script src="script.js"></script>
 </body>
-</html>

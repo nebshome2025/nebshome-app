@@ -1,90 +1,71 @@
- 
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-    <meta charset="UTF-8">
-    <title>Test Nebshome</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 30px; }
-        .question { margin-bottom: 20px; }
-        .result { font-weight: bold; font-size: 1.2em; margin-top: 20px; }
-    </style>
+  <meta charset="UTF-8" />
+  <title>Test Nebshome – 10 Întrebări</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background: #f4f4f4; }
+    h1 { color: #2c3e50; }
+    .question { margin-bottom: 20px; padding: 15px; background: #fff; border-radius: 8px; }
+    .question p { margin-bottom: 8px; }
+    button { padding: 10px 20px; font-size: 16px; }
+  </style>
 </head>
 <body>
-    <h1>Test Nebshome – Ce tip de locuință ți se potrivește?</h1>
-    <form id="nebshomeTest">
-        <!-- Întrebările -->
-        <div class="question">
-            <p>1. Unde te simți cel mai confortabil?</p>
-            <label><input type="radio" name="q1" value="4"> Într-un spațiu curat, simplu, fără aglomerație</label><br>
-            <label><input type="radio" name="q1" value="2"> Într-o casă organizată, cu reguli clare</label><br>
-            <label><input type="radio" name="q1" value="1"> Într-un oraș mare, plin de viață</label><br>
-            <label><input type="radio" name="q1" value="3"> În mijlocul naturii, liniște și verdeață</label>
-        </div>
-        <div class="question">
-            <p>2. Cum îți petreci timpul liber?</p>
-            <label><input type="radio" name="q2" value="1"> Explorând cartiere și cafenele noi</label><br>
-            <label><input type="radio" name="q2" value="2"> Cu familia acasă</label><br>
-            <label><input type="radio" name="q2" value="3"> Făcând drumeții sau grădinărit</label><br>
-            <label><input type="radio" name="q2" value="4"> Citind sau meditând în liniște</label>
-        </div>
-        <div class="question">
-            <p>3. Ce te atrage cel mai mult într-o locuință?</p>
-            <label><input type="radio" name="q3" value="1"> Acces rapid la oraș și evenimente</label><br>
-            <label><input type="radio" name="q3" value="2"> Spațiu suficient pentru toți membrii familiei</label><br>
-            <label><input type="radio" name="q3" value="3"> O grădină sau apropierea de natură</label><br>
-            <label><input type="radio" name="q3" value="4"> Simplitatea și eficiența spațiului</label>
-        </div>
-        <div class="question">
-            <p>4. Cum arată dimineața ideală pentru tine?</p>
-            <label><input type="radio" name="q4" value="3"> Soare, cafea pe terasă, natură în jur</label><br>
-            <label><input type="radio" name="q4" value="2"> Mic dejun în familie</label><br>
-            <label><input type="radio" name="q4" value="4"> Un spațiu alb, ordonat, liniștit</label><br>
-            <label><input type="radio" name="q4" value="1"> Agitație urbană, oameni, străzi</label>
-        </div>
-        <div class="question">
-            <p>5. Cât de important este pentru tine spațiul personal?</p>
-            <label><input type="radio" name="q5" value="1"> Să fie loc de mișcare, de explorare</label><br>
-            <label><input type="radio" name="q5" value="2"> Să existe spații bine delimitate pentru fiecare</label><br>
-            <label><input type="radio" name="q5" value="3"> Să pot simți conexiunea cu natura</label><br>
-            <label><input type="radio" name="q5" value="4"> Să am cât mai puține obiecte în jur</label>
-        </div>
-        <button type="button" onclick="calculateResult()">Vezi rezultatul</button>
-    </form>
+  <h1>Testul Nebshome – Descoperă ce tip de locuință ți se potrivește</h1>
+  <form id="nebshomeTest">
+    <!-- Întrebările -->
+    <div class="question">
+      <p>1. Cum preferi să-ți petreci timpul liber?</p>
+      <label><input type="radio" name="q1" value="A" /> Acasă, în liniște</label><br />
+      <label><input type="radio" name="q1" value="B" /> În oraș, cu prietenii</label><br />
+      <label><input type="radio" name="q1" value="C" /> În natură sau activ</label>
+    </div>
 
-    <div class="result" id="result"></div>
+    <div class="question">
+      <p>2. Ce stil de design interior preferi?</p>
+      <label><input type="radio" name="q2" value="A" /> Modern minimalist</label><br />
+      <label><input type="radio" name="q2" value="B" /> Rustic și natural</label><br />
+      <label><input type="radio" name="q2" value="C" /> Elegant și clasic</label>
+    </div>
 
-    <script>
-        function calculateResult() {
-            const totalScores = {1: 0, 2: 0, 3: 0, 4: 0};
-            for (let i = 1; i <= 5; i++) {
-                const answers = document.getElementsByName('q' + i);
-                for (let answer of answers) {
-                    if (answer.checked) {
-                        totalScores[answer.value]++;
-                    }
-                }
-            }
+    <!-- Adaugă încă 8 întrebări exact în același format -->
 
-            let maxScore = 0;
-            let profile = '';
+    <div class="question">
+      <p>10. Ce te face să te simți cu adevărat „acasă”?</p>
+      <label><input type="radio" name="q10" value="A" /> Liniștea și familiaritatea</label><br />
+      <label><input type="radio" name="q10" value="B" /> Flexibilitatea și libertatea</label><br />
+      <label><input type="radio" name="q10" value="C" /> Ordinea și funcționalitatea</label>
+    </div>
 
-            for (let key in totalScores) {
-                if (totalScores[key] > maxScore) {
-                    maxScore = totalScores[key];
-                    profile = key;
-                }
-            }
+    <button type="button" onclick="calculateScore()">Află profilul</button>
+  </form>
 
-            const descriptions = {
-                1: 'Explorator Urban – Îți place orașul, energia, ritmul rapid. Casa ta ideală este un apartament modern, bine conectat cu tot ce ai nevoie.',
-                2: 'Familist Structurat – Valorezi stabilitatea, rutina și confortul. Casa ideală este una bine organizată, cu spațiu pentru întreaga familie.',
-                3: 'Visător Natural – Ai nevoie de conexiune cu natura. Cea mai bună locuință pentru tine este în afara orașului, cu multă verdeață în jur.',
-                4: 'Minimalist Conștient – Apreciezi ordinea, liniștea și designul simplu. Spațiile mici, dar eficiente, te atrag.'
-            };
+  <script>
+    function calculateScore() {
+      const answers = document.forms["nebshomeTest"];
+      let scoreA = 0, scoreB = 0, scoreC = 0;
 
-            document.getElementById('result').innerText = descriptions[profile] || 'Te rugăm să răspunzi la toate întrebările.';
-        }
-    </script>
+      for (let i = 1; i <= 10; i++) {
+        const selected = answers["q" + i].value;
+        if (selected === "A") scoreA++;
+        else if (selected === "B") scoreB++;
+        else if (selected === "C") scoreC++;
+      }
+
+      let maxScore = Math.max(scoreA, scoreB, scoreC);
+      let profil = "";
+
+      if (maxScore === scoreA) {
+        profil = "Familist Structurat – prețuiești stabilitatea, rutina și confortul. Casa ideală are spații bine organizate și o atmosferă calmă.";
+      } else if (maxScore === scoreB) {
+        profil = "Explorator Urban – cauți energie, conexiuni sociale și stil modern. Îți place să fii aproape de dinamica orașului.";
+      } else {
+        profil = "Visător Natural – îți place armonia, natura și libertatea. Casa ta ideală este integrată cu elemente naturale și deschisă.";
+      }
+
+      alert("🔒 Plătește pentru a primi rezultatul complet.\n\n" + profil);
+    }
+  </script>
 </body>
 </html>

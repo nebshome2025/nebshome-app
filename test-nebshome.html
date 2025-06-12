@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Nebshome</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 700px; margin: auto; padding: 20px; }
+        h1 { text-align: center; }
+        .question { margin-bottom: 20px; }
+        button { padding: 10px 20px; font-size: 16px; }
+        #result { margin-top: 30px; font-weight: bold; font-size: 18px; color: #444; }
+    </style>
+</head>
+<body>
+    <h1>Test Nebshome</h1>
+    <form id="testForm">
+        <div class="question">
+            <p>1. Cât de important este pentru tine să ai acces rapid la cafenele, restaurante sau evenimente?</p>
+            <label><input type="radio" name="q1" value="1"> Deloc important</label><br>
+            <label><input type="radio" name="q1" value="3"> Important, dar nu esențial</label><br>
+            <label><input type="radio" name="q1" value="5"> Foarte important</label>
+        </div>
+        <div class="question">
+            <p>2. Cum preferi să petreci serile acasă?</p>
+            <label><input type="radio" name="q2" value="1"> În liniște completă, fără zgomot din jur</label><br>
+            <label><input type="radio" name="q2" value="3"> Cu activități relaxante (TV, carte, muzică soft)</label><br>
+            <label><input type="radio" name="q2" value="5"> Cu prieteni, socializare sau activitate intensă</label>
+        </div>
+        <div class="question">
+            <p>3. Cât de mult te atrage natura în jurul casei tale?</p>
+            <label><input type="radio" name="q3" value="5"> E o necesitate pentru echilibrul meu</label><br>
+            <label><input type="radio" name="q3" value="3"> Îmi place, dar nu e esențial</label><br>
+            <label><input type="radio" name="q3" value="1"> Nu mă interesează prea mult</label>
+        </div>
+        <div class="question">
+            <p>4. Ce simți că ai nevoie cel mai mult acasă?</p>
+            <label><input type="radio" name="q4" value="5"> Spațiu și libertate de mișcare</label><br>
+            <label><input type="radio" name="q4" value="3"> Confort și funcționalitate</label><br>
+            <label><input type="radio" name="q4" value="1"> Simplitate și ordine</label>
+        </div>
+        <div class="question">
+            <p>5. Cât de mult îți place să personalizezi spațiul tău?</p>
+            <label><input type="radio" name="q5" value="5"> Îl transform total după gustul meu</label><br>
+            <label><input type="radio" name="q5" value="3"> Îl adaptez parțial, în funcție de timp și buget</label><br>
+            <label><input type="radio" name="q5" value="1"> Nu pun accent pe asta</label>
+        </div>
+        <div class="question">
+            <p>6. Cum te simți într-un bloc cu mulți vecini?</p>
+            <label><input type="radio" name="q6" value="1"> Obosit, caut izolare</label><br>
+            <label><input type="radio" name="q6" value="3"> Acceptabil, dar prefer spații mai liniștite</label><br>
+            <label><input type="radio" name="q6" value="5"> Îmi place energia comunității</label>
+        </div>
+        <div class="question">
+            <p>7. Cât de flexibil e programul tău zilnic?</p>
+            <label><input type="radio" name="q7" value="5"> Foarte flexibil, lucrez de oriunde</label><br>
+            <label><input type="radio" name="q7" value="3"> Mediu, am unele constrângeri</label><br>
+            <label><input type="radio" name="q7" value="1"> Fix, am un program strict</label>
+        </div>
+        <div class="question">
+            <p>8. Cât de mult contează eficiența energetică a locuinței?</p>
+            <label><input type="radio" name="q8" value="5"> Foarte mult, e prioritar</label><br>
+            <label><input type="radio" name="q8" value="3"> Contează, dar nu e decisiv</label><br>
+            <label><input type="radio" name="q8" value="1"> Nu e o preocupare majoră</label>
+        </div>
+        <div class="question">
+            <p>9. Ce simți când ești în agitația orașului?</p>
+            <label><input type="radio" name="q9" value="5"> Mă energizează și inspiră</label><br>
+            <label><input type="radio" name="q9" value="3"> Depinde de stare</label><br>
+            <label><input type="radio" name="q9" value="1"> Mă obosește și irită</label>
+        </div>
+        <div class="question">
+            <p>10. Cât de important e pentru tine ca locuința să reflecte cine ești?</p>
+            <label><input type="radio" name="q10" value="5"> E o extensie a identității mele</label><br>
+            <label><input type="radio" name="q10" value="3"> E important, dar nu fundamental</label><br>
+            <label><input type="radio" name="q10" value="1"> Nu pun mare accent</label>
+        </div>
+        <button type="button" onclick="calculateScore()">Vezi rezultatul</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        function calculateScore() {
+            let score = 0;
+            for (let i = 1; i <= 10; i++) {
+                let radios = document.getElementsByName("q" + i);
+                let answered = false;
+                for (let j = 0; j < radios.length; j++) {
+                    if (radios[j].checked) {
+                        score += parseInt(radios[j].value);
+                        answered = true;
+                    }
+                }
+                if (!answered) {
+                    alert("Te rugăm să răspunzi la întrebarea " + i);
+                    return;
+                }
+            }
+
+            document.getElementById("result").innerHTML = "Scorul tău este: " + score +
+                ".<br><br><b>Pentru a vedea profilul locativ personalizat, finalizează plata.</b>";
+        }
+    </script>
+</body>
+</html>

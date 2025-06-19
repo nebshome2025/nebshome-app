@@ -1,131 +1,31 @@
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f7f6;
-    color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background-color: #f6f9fc;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .container {
-    background-color: #ffffff;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 100%;
-    max-width: 700px;
-    box-sizing: border-box;
+  text-align: center;
+  background: white;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-h1 {
-    color: #2c3e50;
-    margin-bottom: 30px;
-    font-size: 2em;
+.start-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background-color: #0078D4;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
 }
 
-#quiz-container {
-    margin-top: 30px;
-}
 
-#question-area {
-    margin-bottom: 30px;
-}
-
-#question-text {
-    font-size: 1.5em;
-    margin-bottom: 25px;
-    color: #34495e;
-}
-
-.options-grid {
-    display: grid;
-    grid-template-columns: 1fr; /* Una coloană pe mobil */
-    gap: 15px;
-    margin-top: 20px;
-}
-
-@media (min-width: 600px) {
-    .options-grid {
-        grid-template-columns: 1fr 1fr; /* Două coloane pe ecrane mai mari */
-    }
-}
-
-.option-button {
-    background-color: #ecf0f1;
-    color: #2c3e50;
-    border: 2px solid #bdc3c7;
-    padding: 15px 20px;
-    border-radius: 8px;
-    font-size: 1.1em;
-    cursor: pointer;
-    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
-    text-align: center;
-}
-
-.option-button:hover {
-    background-color: #dbe4e6;
-    border-color: #95a5a6;
-    transform: translateY(-2px);
-}
-
-.option-button.selected {
-    background-color: #3498db;
-    color: white;
-    border-color: #2980b9;
-    transform: translateY(-2px);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-#navigation-buttons {
-    margin-top: 30px;
-}
-
-.btn {
-    background-color: #2ecc71; /* Verde pentru butoane */
-    color: white;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.1em;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    margin: 0 10px;
-}
-
-.btn:hover {
-    background-color: #27ae60;
-    transform: translateY(-2px);
-}
-
-.btn:D isabled {
-    background-color: #b0e5c9;
-    cursor: not-allowed;
-}
-
-#prev-button {
-    background-color: #e67e22; /* Portocaliu pentru Înapoi */
-}
-#prev-button:hover {
-    background-color: #d35400;
-}
-
-#submit-button {
-    background-color: #3498db; /* Albastru pentru Submit */
-}
-#submit-button:hover {
-    background-color: #2980b9;
-}
-
-#result-message {
-    font-size: 1.2em;
-    color: #2c3e50;
-    margin-top: 30px;
-    padding: 20px;
-    background-color: #eaf7f2;
-    border-radius: 8px;
-    border: 1px solid #d4edda;
-}
